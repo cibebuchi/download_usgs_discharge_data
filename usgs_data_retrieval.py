@@ -4,7 +4,7 @@ USGS Streamflow Data Retrieval Script
 
 Downloads daily discharge (parameter 00060) for specified USGS sites,
 merges onto a complete daily calendar, computes completeness percentage over a
-static window (1970-01-01 to 2024-12-31), and saves CSV outputs.
+static window (e.g., 1970-01-01 to 2024-12-31), and saves CSV outputs.
 
 Usage:
     python usgs_data_retrieval.py --output-dir ./data/final --complete-dir ./data/complete
@@ -23,9 +23,9 @@ import re
 # Default USGS parameter code for daily discharge
 USGS_PARAM = '00060'
 # Default list of western US state codes
-DEFAULT_STATES = ['CA','OR','WA','ID','NV','UT','AZ','MT','WY','CO','NM']
+DEFAULT_STATES = ['CA','OR','WA','ID','NV','UT','AZ','MT','WY','CO','NM'] #add more states
 
-# Static calendar window for completeness calculation
+# Static calendar window for completeness calculation. Adjust as required
 START_DATE = '1970-01-01'
 END_DATE   = '2024-12-31'
 FULL_DATES = pd.date_range(start=START_DATE, end=END_DATE, freq='D')
